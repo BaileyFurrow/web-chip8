@@ -1,3 +1,8 @@
 canvas {
     border: 2px solid black;
+    display: block;
+}
+
+button {
+    font-size: xx-large;
 }

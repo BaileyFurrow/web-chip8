@@ -4,7 +4,56 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>CHIP-8 Emulator</h1>
+        <div class="subtitle">By Bailey Furrow</div>
+    </header>
     <canvas></canvas>
+
+    <button class="start-button">Start</button>
+    <button class="pause">Pause Emulation</button>
+
+    <div id="sound">
+        <h2>Sound/Music Control</h2>
+        <form name="sound">
+
+            <label for="mute">Mute Sound</label>
+            <input type="checkbox" name="mute" id="mute">
+
+            <label for="freq">Frequency</label>
+            <input type="number" name="freq" id="freq">
+
+            <label for="wave">Sound Wave</label>
+            <select name="wave" id="wave">
+                <option value="sine">Sine</option>
+                <option value="triangle">Triangle</option>
+                <option value="square">Square</option>
+            </select>
+        </form>
+    </div>
+    
+    <div id="settings">
+        <h2>Emulation Settings</h2>
+        <form name="settings">
+            <label for="scale">Render scale</label>
+            <input type="number" name="scale" id="scale">
+
+            <label for="speed">Emulation speed</label>
+            <input type="number" name="speed" id="speed">
+        </form>
+    </div>
+
+    <div id="romselect">
+        <h2>Select a rom</h2>
+        <form name="romselect">
+            <label for="rom">Select a rom:</label>
+            <select name="rom" id="rom">
+                <!-- JS will insert list of ROMS based on directory -->
+            </select>
+            <input type="submit" value="Load">
+        </form>
+    </div>
+
 
     <script type="module" src="scripts/chip8.js"></script>
 </body>
