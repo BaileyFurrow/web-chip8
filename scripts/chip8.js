@@ -17,7 +17,14 @@ import CPU from './cpu.js';
 let loop;
 
 let fps = 60, fpsInterval, startTime, now, then, elapsed;
+let cpuPaused = false;
 let loadedRom = 'BLITZ';
+
+const keyboardLayout = 
+    ['1', '2', '3', 'C',
+     '4', '5', '6', 'D',
+     '7', '8', '9', 'E',
+     'A', '0', 'B', 'F'];
 
 function init() {
     let renderSize = document.querySelector('#scale').value;
@@ -37,6 +44,8 @@ function init() {
     loop = requestAnimationFrame(step);
     
     function step() {
+        if (cpuPaused)
+            loop = requestAnimationFrame(step);
         now = Date.now();
         elapsed = now-then;
         if (elapsed > fpsInterval) {
@@ -52,6 +61,10 @@ function init() {
 document.querySelector('.start-button').addEventListener("click", init);
 
 // TODO: #1 Pause emulation
+document.querySelector('.pause').addEventListener('click', () => {
+    cpuPaused = !cpuPaused;
+    document.querySelector('.status').innerHTML = cpuPaused ? 'Resume' : 'Pause';
+});
 
 // TODO: #2 Sound Settings
 document.forms['sound']['volume'].onchange = () => {

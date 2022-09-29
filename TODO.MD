@@ -1,7 +1,7 @@
 # TODO for Project
 
 - [x] Audio control (mute, change frequency, change wave type (sine, triangle), etc)
-- [ ] Ability to change render scale and emulator speed from the UI
+- [x] Ability to change render scale and emulator speed from the UI
 - [ ] Pause and unpause
 - [ ] Ability to save and load a save
 - [x] ROM selection
@@ -24,7 +24,7 @@
 - [x] Mute
 - [x] Change frequency
 - [x] Change wave type
-- [ ] Change render scale
-- [ ] Change emulation speed
+- [x] Change render scale
+- [x] Change emulation speed
 - [ ] Pause
 - [x] Select and load rom
