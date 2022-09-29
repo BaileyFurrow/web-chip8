@@ -3,11 +3,11 @@
     Bailey Furrow
 
     TODO:
-    [] Audio control (mute, change frequency, change wave type (sine, triangle), etc)
-    [] Ability to change render scale and emulator speed from the UI
-    [] Pause and unpause
-    [] Ability to save and load a save
-    [] ROM selection
+    [x] Audio control (mute, change frequency, change wave type (sine, triangle), etc)
+    [ ] Ability to change render scale and emulator speed from the UI
+    [ ] Pause and unpause
+    [ ] Ability to save and load a save
+    [ ] ROM selection
 */
 import Renderer from './renderer.js';
 import Keyboard from './keyboard.js';
@@ -20,10 +20,12 @@ let fps = 60, fpsInterval, startTime, now, then, elapsed;
 let loadedRom = 'BLITZ';
 
 function init() {
-    const renderer = new Renderer(30);
+    let renderSize = document.querySelector('#scale').value;
+    let speed = document.querySelector('#speed').value;
+    const renderer = new Renderer(renderSize);
     const keyboard = new Keyboard();
     const speaker = new Speaker();
-    const cpu = new CPU(renderer, keyboard, speaker);
+    const cpu = new CPU(renderer, keyboard, speaker, speed);
 
     fpsInterval = 1000 / fps;
     then = Date.now();

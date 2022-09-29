@@ -1,8 +1,9 @@
 class CPU {
-    constructor(renderer, keyboard, speaker) {
+    constructor(renderer, keyboard, speaker, speed) {
         this.renderer = renderer;
         this.keyboard = keyboard;
         this.speaker = speaker;
+        this.speed = speed;
 
         // 4kb of memory
         this.memory = new Uint8Array(4096);
@@ -25,8 +26,6 @@ class CPU {
 
         // Some instructions need to pause
         this.paused = false;
-
-        this.speed = 10;
     }
 
     loadSpritesIntoMemory() {
