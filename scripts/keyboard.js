@@ -1,5 +1,17 @@
 class Keyboard {
     constructor() {
+        /* Keymap is laid out as the following:
+        Interpreted character/labeled character
+        |---|---|---|---|
+        |1/1|2/2|3/3|C/4|
+        |---|---|---|---|
+        |4/Q|5/W|6/E|D/E|
+        |---|---|---|---|
+        |7/A|8/S|9/D|E/F|
+        |---|---|---|---|
+        |A/Z|0/X|B/C|F/V|
+        |---|---|---|---|
+        */
         this.KEYMAP = {
             49: 0x1,
             50: 0x2,

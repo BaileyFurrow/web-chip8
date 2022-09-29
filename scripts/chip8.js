@@ -63,7 +63,7 @@ function init() {
 document.querySelector('.start-button').addEventListener("click", init);
 
 document.querySelector('.pause').addEventListener('click', () => {
-    document.querySelector('.status').innerHTML = init.pause() ? 'Resume' : 'Pause';
+    document.querySelector('.status').innerHTML = pause() ? 'Resume' : 'Pause';
 });
 
 document.forms['sound']['volume'].onchange = () => {
