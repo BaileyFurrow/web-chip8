@@ -104,8 +104,8 @@ class CPU {
     }
 
     playSound() {
-        if (this.soundTimer > 0) {
-            this.speaker.play(440);
+        if (this.soundTimer > 0 && !document.forms['sound']['mute'].checked) {
+            this.speaker.play(document.forms['sound']['freq'].value, document.forms['sound']['volume'].value);
         } else {
             this.speaker.stop();
         }

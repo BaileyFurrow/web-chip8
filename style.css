@@ -3,6 +3,11 @@ canvas {
     display: block;
 }
 
-button {
+.main-button {
     font-size: xx-large;
+}
+
+.loaded {
+    display: none;
+    color: green;
 }

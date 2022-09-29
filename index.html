@@ -10,23 +10,28 @@
     </header>
     <canvas></canvas>
 
-    <button class="start-button">Start</button>
-    <button class="pause">Pause Emulation</button>
+    <button class="main-button start-button">Start</button>
+    <button class="main-button pause">Pause Emulation</button>
 
     <div id="sound">
         <h2>Sound/Music Control</h2>
         <form name="sound">
 
+            <label for="volume">Volume: <span class="vol-num">50</span> </label>
+            <!-- Shows 0-100, but volume is cut by 1/5th -->
+            <input type="range" name="volume" id="volume" min="0" max="100">
+
             <label for="mute">Mute Sound</label>
             <input type="checkbox" name="mute" id="mute">
 
             <label for="freq">Frequency</label>
-            <input type="number" name="freq" id="freq">
+            <input type="number" name="freq" id="freq" value="440">
 
             <label for="wave">Sound Wave</label>
             <select name="wave" id="wave">
                 <option value="sine">Sine</option>
                 <option value="triangle">Triangle</option>
+                <option value="sawtooth">Sawtooth</option>
                 <option value="square">Square</option>
             </select>
         </form>
@@ -45,15 +50,27 @@
 
     <div id="romselect">
         <h2>Select a rom</h2>
-        <form name="romselect">
+        <form onsubmit="return false" name="romselect">
             <label for="rom">Select a rom:</label>
             <select name="rom" id="rom">
                 <!-- JS will insert list of ROMS based on directory -->
             </select>
-            <input type="submit" value="Load">
+            <button id="loadRom">Load</button>
+            <div class="loaded">Loaded <span class="romname"></span>!</div>
         </form>
     </div>
 
+    <div id="debug">
+        <h2>Debug</h2>
+        <span class="sub2">Low-level editing in a future update</span>
+        <h3>8-bit V registers</h3>
+        <h3>Memory Address</h3>
+        <h3>Timers</h3>
+        <h3>Program Counter</h3>
+        <h3>Stack</h3>
+        <h3>Paused</h3>
+        <h3>Speed</h3>
+    </div>
 
     <script type="module" src="scripts/chip8.js"></script>
 </body>
