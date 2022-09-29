@@ -4,10 +4,10 @@
 
     TODO:
     [x] Audio control (mute, change frequency, change wave type (sine, triangle), etc)
-    [ ] Ability to change render scale and emulator speed from the UI
+    [x] Ability to change render scale and emulator speed from the UI
     [ ] Pause and unpause
     [ ] Ability to save and load a save
-    [ ] ROM selection
+    [x] ROM selection
 */
 import Renderer from './renderer.js';
 import Keyboard from './keyboard.js';
@@ -17,7 +17,6 @@ import CPU from './cpu.js';
 let loop;
 
 let fps = 60, fpsInterval, startTime, now, then, elapsed;
-let cpuPaused = false;
 let loadedRom = 'BLITZ';
 
 const keyboardLayout = 
@@ -42,10 +41,13 @@ function init() {
     cpu.loadRom(loadedRom);
 
     loop = requestAnimationFrame(step);
+
+    function pause() {
+        cpu.pause = !cpu.pause;
+        return cpu.pause;
+    }
     
     function step() {
-        if (cpuPaused)
-            loop = requestAnimationFrame(step);
         now = Date.now();
         elapsed = now-then;
         if (elapsed > fpsInterval) {
@@ -60,18 +62,13 @@ function init() {
 // Initialize the emulator when "Start" is clicked
 document.querySelector('.start-button').addEventListener("click", init);
 
-// TODO: #1 Pause emulation
 document.querySelector('.pause').addEventListener('click', () => {
-    cpuPaused = !cpuPaused;
-    document.querySelector('.status').innerHTML = cpuPaused ? 'Resume' : 'Pause';
+    document.querySelector('.status').innerHTML = init.pause() ? 'Resume' : 'Pause';
 });
 
-// TODO: #2 Sound Settings
 document.forms['sound']['volume'].onchange = () => {
     document.querySelector('.vol-num').innerHTML = document.forms['sound']['volume'].value;
 };
-
-// TODO: Emulation Settings
 
 // Insert names of ROMs into rom selection
 // For now, simply place file in directory and update here
