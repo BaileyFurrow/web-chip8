@@ -39,6 +39,8 @@ function init() {
 
     cpu.loadSpritesIntoMemory();
     cpu.loadRom(loadedRom);
+    
+    for (i in cpu) console.log(i);
 
     loop = requestAnimationFrame(step);
 
