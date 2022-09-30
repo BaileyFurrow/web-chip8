@@ -63,8 +63,10 @@ function init() {
 
 function debugValues(cpuObj) {
     let debugID = document.querySelector('#debug');
-    for (const i in cpuObj) {
-        debugID.querySelector(`.${i}`).innerHTML = cpuObj[i];
+    let debugClasses = debugID.querySelectorAll('.debug');
+    for (const i in debugClasses) {
+        let value = i.classList[1];
+        debugID.querySelector(`.${value}`).innerHTML = cpuObj[value];
     }
 }
 
