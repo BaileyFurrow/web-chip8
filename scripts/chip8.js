@@ -40,7 +40,7 @@ function init() {
     cpu.loadSpritesIntoMemory();
     cpu.loadRom(loadedRom);
     
-    for (i in cpu) console.log(i);
+    for (let i in cpu) console.log(i);
 
     loop = requestAnimationFrame(step);
 
