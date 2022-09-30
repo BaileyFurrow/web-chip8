@@ -62,7 +62,7 @@ function init() {
 function debugValues(cpuObj) {
     let debugID = document.querySelector('#debug');
     for (const i in cpuObj) {
-        console.log(`${i}: ${cpuObj[i]}`);
+        debugID.querySelector(`.${i}`).innerHTML = cpuObj[i];
     }
 }
 
