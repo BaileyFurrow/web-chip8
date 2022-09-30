@@ -53,11 +53,18 @@ function init() {
         if (elapsed > fpsInterval) {
             cpu.cycle();
         }
+        debugValues(cpu);
 
         loop = requestAnimationFrame(step);
     }
 }
 
+function debugValues(cpuObj) {
+    let debugID = document.querySelector('#debug');
+    for (const i in cpuObj) {
+        console.log(`${i}: ${cpuObj[i]}`);
+    }
+}
 
 // Initialize the emulator when "Start" is clicked
 document.querySelector('.start-button').addEventListener("click", init);
